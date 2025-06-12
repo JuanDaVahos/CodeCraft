@@ -57,8 +57,8 @@ main {
     }
   }
   .principalImage {
-    width: 100%;
-    
+    width: 100dvw;
+
   }
 
 }
