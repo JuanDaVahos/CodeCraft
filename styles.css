@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
 }
 
 body {
@@ -9,7 +10,8 @@ body {
   grid-template-rows: auto 1fr auto;
   min-height: 100dvh;
   background-color: #ececec;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .headerDiv {
@@ -41,15 +43,18 @@ main {
   margin-top: 74px;
   display: grid;
   place-content: center;
+  place-items: center;
+  padding: 1rem;
 }
 
 main .cardsContainer {
+  max-width: 1100px;
   display: grid;
   place-content: center;
-  max-width: 900px;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
+  margin-bottom: 50px;
 }
 
 main .cardsContainer .card {
@@ -83,15 +88,58 @@ main .cardsContainer .card a {
 
 main .cardsContainer .card a:hover {
   text-decoration: underline;
+  color: #fff9cb;
+  transition: color 0.3s linear;
 }
 
 main .cardsContainer .card a::after {
-  content: "👉";
+  content: "➡️";
 }
 
 main .cardsContainer .card:first-child {
   background: linear-gradient(to right, #ff7e5f, #feb47b);
   grid-column: 1/4;
+}
+
+.servisios {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  max-width: 1100px;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.servisios article {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #0000001a;
+}
+
+.servisios article h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.servisios article a {
+  text-decoration: none;
+  color: #000;
+  background-color: #a9ffae;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  margin: 10px 0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.servisios article a:hover {
+  background-color: #00ff0d;
+  scale: 1.05;
 }
 
 footer {
@@ -100,10 +148,9 @@ footer {
   justify-content: space-around;
   padding: 1rem;
   background-color: #fff;
-  margin-top: 20px;
 }
 
-.iconMenu{
+.iconMenu {
   display: none;
   cursor: pointer;
 }
@@ -152,5 +199,17 @@ footer {
 
   main .cardsContainer .card:first-child {
     grid-column: 1 / -1;
+  }
+
+  .servisios {
+    grid-template-columns: 1fr;
+  }
+
+  .servisios article {
+    grid-column: 1 / -1;
+  }
+  
+  footer :last-child {
+    text-align: end;
   }
 }
