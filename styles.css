@@ -51,17 +51,18 @@ main .cardsContainer {
   max-width: 1100px;
   display: grid;
   place-content: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
   margin-bottom: 50px;
+  text-wrap: balance;
 }
 
 main .cardsContainer .card {
-  background: linear-gradient(to right, #5850a2, #e4baff);
+  background: linear-gradient(to right, #8244c4, #649cfd);
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px #0000001a;
+  box-shadow: 0px 0px 10px #0000008a;
   transition: scale 0.3s linear, translate 0.3s linear;
 }
 
@@ -105,7 +106,7 @@ main .cardsContainer .card:first-child {
   display: grid;
   place-content: center;
   text-align: center;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   max-width: 1100px;
   gap: 1rem;
   padding: 1rem;
@@ -114,10 +115,16 @@ main .cardsContainer .card:first-child {
 .servisios article {
   display: grid;
   place-items: center;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 10px;  
   box-shadow: 0px 0px 10px #0000001a;
+  transition: scale 0.3s linear, translate 0.3s linear;
+}
+
+.servisios article:hover {
+  scale: 1.03;
+  translate: 0 -5px;
 }
 
 .servisios article h3 {
@@ -205,10 +212,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .servisios article {
-    grid-column: 1 / -1;
-  }
-  
   footer :last-child {
     text-align: end;
   }
