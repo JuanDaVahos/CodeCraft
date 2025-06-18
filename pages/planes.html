@@ -3,23 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CodeCraft - Pagina web de practicas univversitarias, no es funcional y no se puede contratar ningun servicio, es solo un proyecto de practicas"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="icon" href="./VahosDev.webp" />
-    <script src="./js/index.js" defer></script>
-    <title>
-      CodeCraft - La mejor compañia para desarrollar el software que necesitas
-    </title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" href="../VahosDev.webp" />
+    <title>Planes, Precios y Servicios de CodeCraft</title>
+    <style>
+      .servisios article button {
+        text-decoration: none;
+        color: #000;
+        background-color: #a9ffae;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        margin: 10px 0;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s linear;
+      }
+
+      .servisios article button:hover {
+        background-color: #00ff0d;
+        scale: 1.05;
+      }
+    </style>
+    <script src="../js/index.js" defer></script>
   </head>
   <body>
     <header>
       <div class="headerDiv">
-        <a href="./index.html">
+        <a href="../index.html">
           <img
-            src="./Logo.webp"
+            src="../Logo.webp"
             alt="Logo De CodeCraft"
             width="50px"
             hight="50px"
@@ -47,7 +60,7 @@
         </label>
         <nav class="navbar">
           <ul>
-            <a href="./index.html">Inicio</a>
+            <a href="../index.html">Inicio</a>
             <a href="./pages/planes.html">Planes y precios</a>
             <a href="./contactanos.html">Contactanos</a>
             <a href="./QuienesSomos.html">Quienes somos</a>
@@ -57,43 +70,6 @@
       </div>
     </header>
     <main>
-      <div class="cardsContainer">
-        <div class="card">
-          <h2>Planes y Precios</h2>
-          <p>
-            En CodeCraft, ofrecemos una amplia gama de planes y precios
-            personalizados para satisfacer las necesidades de nuestros
-          </p>
-          <a href="./pages/planes.html">Saber más</a>
-        </div>
-        <div class="card">
-          <h2>Contactanos</h2>
-          <p>
-            Si tienes alguna pregunta o necesitas asesoramiento, no dudes en
-            contactarnos. Nuestro equipo de soporte estará encantado de
-            ayudarte.
-          </p>
-          <a>Saber más</a>
-        </div>
-        <div class="card">
-          <h2>Quienes Somos</h2>
-          <p>
-            Somos una empresa dedicada a la creación de software de alta calidad
-            para satisfacer las necesidades de nuestros clientes.
-          </p>
-          <a href="./QuienesSomos.html">Saber más</a>
-        </div>
-        <div class="card">
-          <h2>Trabaja Con Nosotros</h2>
-          <p>
-            Si buscas una oportunidad laboral en CodeCraft, no dudes en
-            contactarnos. Nuestro equipo de talento estará encantado de
-            colaborar contigo.
-          </p>
-          <a href="./Trabaja.html">Saber más</a>
-        </div>
-      </div>
-      <h2 style="margin-top: 50px">Servicios Más Populares</h2>
       <section class="servisios">
         <article class="plan">
           <h3>Desarrollo Web</h3>
@@ -116,12 +92,13 @@
           </svg>
           <p>
             Creamos sitios web personalizados y aplicaciones web que se adaptan
+            a las necesidades de tu negocio.
           </p>
           <p>
-            a las necesidades de tu negocio. Perfecto para empresas pequeñas y
-            medianas que buscan una presencia en línea efectiva.
+            Perfecto para empresas pequeñas y medianas que buscan una presencia
+            en línea efectiva.
           </p>
-          <a href="./pages/planes.html">Contratar</a>
+          <button>Desde $999/mes</button>
         </article>
         <article class="plan">
           <h3>Desarrollo Móvil</h3>
@@ -156,7 +133,88 @@
             Perfecto para empresas que buscan expandir su alcance a través de
             dispositivos móviles.
           </p>
-          <a href="./pages/planes.html">Contratar</a>
+          <button>Desde $1,499/mes</button>
+        </article>
+        <article class="plan">
+          <h3>Consultoría IT</h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+          </svg>
+          <p>
+            Asesoramiento experto en tecnología, estrategia digital y
+            optimización de procesos IT para maximizar el rendimiento de tu
+            empresa.
+          </p>
+          <p>
+            Ideal para empresas que buscan mejorar su infraestructura
+            tecnológica y procesos digitales.
+          </p>
+          <button>Desde $799/sesión</button>
+        </article>
+        <article class="plan">
+          <h3>Mantenimiento y Soporte</h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+            />
+          </svg>
+          <p>
+            Servicio continuo de mantenimiento, actualizaciones y soporte
+            técnico para mantener tus aplicaciones funcionando de manera óptima.
+          </p>
+          <p>
+            Perfecto para empresas que necesitan mantener sus sistemas
+            actualizados y funcionando sin problemas.
+          </p>
+          <button>Desde $599/mes</button>
+        </article>
+        <article class="plan">
+          <h3>E-commerce Solutions</h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+            />
+          </svg>
+          <p>
+            Desarrollo completo de tiendas online, integración de pasarelas de
+            pago y sistemas de gestión de inventario.
+          </p>
+          <p>
+            Ideal para negocios que quieren vender sus productos o servicios en
+            línea.
+          </p>
+          <button>Desde $1,799/mes</button>
         </article>
         <article class="plan">
           <h3>Desarrollo De Software Personalizado</h3>
@@ -188,9 +246,12 @@
             Perfecto para empresas grandes que buscan una solución a medida para
             sus operaciones.
           </p>
-          <a href="./pages/planes.html">Contratar</a>
+          <button>Desde $2,999/mes</button>
         </article>
       </section>
+      <template>
+        <dialog></dialog>
+      </template>
     </main>
     <footer>
       <p>Hecho por <span>VahosDev</span></p>
