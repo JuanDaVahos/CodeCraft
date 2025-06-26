@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Contactanos || CodeCraft</title>
+    <link rel="icon" href="../VahosDev.webp" />
+    <style>
+      main form {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+      textarea {
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        min-height: 50px;
+        max-height: 300px;
+        resize: none;
+        field-sizing: content;
+        border: 1px solid #ccc;
+      }
+
+      input {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        background: linear-gradient(to right, #8244c4, #649cfd);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: linear-gradient(to right, #7225c3, #2976fb);
+      }
+
+      label {
+        margin-bottom: 5px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      @media (width < 768px) {
+        main form {
+          width: 100%;
+        }
+
+        textarea {
+          max-width: 255.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="headerDiv">
+        <a href="../index.html">
+          <img
+            src="../Logo.webp"
+            alt="Logo De CodeCraft"
+            width="50px"
+            hight="50px"
+          />
+        </a>
+        <input type="checkbox" id="Menu" style="display: none" />
+        <label class="iconMenu" for="Menu"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 6l16 0" />
+            <path d="M4 12l16 0" />
+            <path d="M4 18l16 0" />
+          </svg>
+        </label>
+        <nav class="navbar">
+          <ul>
+            <a href="../index.html">Inicio</a>
+            <a href="./planes.html">Planes y precios</a>
+            <a href="./contactanos.html">Contactanos</a>
+            <a href="./QuienesSomos.html">Quienes somos</a>
+            <a href="./Trabaja.html">Trabaja con nosotros</a>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <form method="post" class="contact-form">
+        <h1>Contactanos</h1>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+    <footer>
+      <p>Hecho por <span>VahosDev</span></p>
+      <p>Proyecto Ficticio De La Universidad</p>
+    </footer>
+  </body>
+</html>

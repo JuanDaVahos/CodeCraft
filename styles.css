@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
-}
+} 
 
 body {
   display: grid;
@@ -117,7 +117,7 @@ main .cardsContainer .card:first-child {
   place-items: center;
   background: linear-gradient(to right, #ff7e5f, #feb47b);
   padding: 1rem;
-  border-radius: 10px;  
+  border-radius: 10px;
   box-shadow: 0px 0px 10px #0000001a;
   transition: scale 0.3s linear, translate 0.3s linear;
 }
@@ -149,9 +149,55 @@ main .cardsContainer .card:first-child {
   scale: 1.05;
 }
 
+.servisios article button {
+  text-decoration: none;
+  color: #000;
+  background-color: #a9ffae;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  margin: 10px 0;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.servisios article button:hover {
+  background-color: #00ff0d;
+  scale: 1.05;
+}
+
+dialog[open] {
+  scale: 1;
+  transition: scale 0.3s ease-in-out;
+  @starting-style{
+    scale: 0;
+  };
+}
+
+dialog {
+  transition: scale .3s ease,
+    display .3s ease allow-discrete;
+  scale: 0;
+  display: grid;
+  place-items: center;
+  inset: 0;
+  margin: auto;
+  padding: 10px;
+  width: 70dvw;
+  height: 80dvh;
+  border: none;
+  border-radius: 20px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 footer {
   display: flex;
   align-items: center;
+  margin-top: 20px;
   justify-content: space-around;
   padding: 1rem;
   background-color: #fff;
@@ -210,6 +256,11 @@ footer {
 
   .servisios {
     grid-template-columns: 1fr;
+  }
+
+  dialog {
+    width: 90dvw;
+    height: 90dvh;
   }
 
   footer :last-child {

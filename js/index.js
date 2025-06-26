@@ -42,3 +42,38 @@ labelMenu.addEventListener("click", () => {
     </svg>`;
   }
 });
+
+function setupPlanDialogs() {
+  const template = document.getElementById("planDialogTemplate");
+  const planButtons = document.querySelectorAll(".openModal");
+
+  planButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const article = btn.closest(".plan");
+      const planName = article.querySelector("h3").textContent;
+      const planPrice = btn.textContent;
+      const description = article.querySelector("p").textContent;
+
+      const clone = template.content.cloneNode(true);
+      const dialog = clone.querySelector("dialog");
+
+      dialog.querySelector(".dialogPlanTitle").textContent = planName;
+      dialog.querySelector(".dialogPlanPrice").textContent = planPrice;
+      dialog.querySelector(".dialogPlanDescription").textContent = description;
+
+      dialog.addEventListener("close", () => {
+        dialog.remove();
+        document.body.style.overflow = "";
+      });
+
+      dialog.addEventListener("show", () => {
+        document.body.style.overflow = "hidden";
+      });
+
+      document.body.appendChild(dialog);
+      dialog.showModal();
+    });
+  });
+}
+
+setupPlanDialogs();
