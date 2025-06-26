@@ -77,3 +77,18 @@ function setupPlanDialogs() {
 }
 
 setupPlanDialogs();
+
+fetch("/api/planes")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("Planes disponibles:", data);
+    // aquí puedes mostrarlos en una tabla, por ejemplo
+  });
+
+fetch("/api/contactanos")
+  .then((res) => res.json())
+  .then((data) => console.log("Mensajes:", data));
+
+fetch("/api/trabaja")
+  .then((res) => res.json())
+  .then((data) => console.log("Aplicantes:", data));
