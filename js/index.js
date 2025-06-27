@@ -52,10 +52,14 @@ function setupPlanDialogs() {
       const article = btn.closest(".plan");
       const planName = article.querySelector("h3").textContent;
       const planPrice = btn.textContent;
-      const description = article.querySelector("p").textContent;
+      const description = article.querySelectorAll("p")[0].textContent;
 
       const clone = template.content.cloneNode(true);
       const dialog = clone.querySelector("dialog");
+
+      // Usa querySelector con clase para los campos ocultos
+      dialog.querySelector(".inputPlan").value = planName;
+      dialog.querySelector(".inputPrecio").value = planPrice;
 
       dialog.querySelector(".dialogPlanTitle").textContent = planName;
       dialog.querySelector(".dialogPlanPrice").textContent = planPrice;
@@ -66,10 +70,6 @@ function setupPlanDialogs() {
         document.body.style.overflow = "";
       });
 
-      dialog.addEventListener("show", () => {
-        document.body.style.overflow = "hidden";
-      });
-
       document.body.appendChild(dialog);
       dialog.showModal();
     });
@@ -77,18 +77,3 @@ function setupPlanDialogs() {
 }
 
 setupPlanDialogs();
-
-fetch("/api/planes")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log("Planes disponibles:", data);
-    // aquí puedes mostrarlos en una tabla, por ejemplo
-  });
-
-fetch("/api/contactanos")
-  .then((res) => res.json())
-  .then((data) => console.log("Mensajes:", data));
-
-fetch("/api/trabaja")
-  .then((res) => res.json())
-  .then((data) => console.log("Aplicantes:", data));
