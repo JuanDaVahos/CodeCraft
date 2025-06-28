@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de Sesion o Registro || CodeCraft</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" href="../src/VahosDev.webp" />
+    <script src="../js/index.js" defer></script>
+    <meta
+      name="description"
+      content="CodeCraft - Inicio de Sesion o Registro. Crea una cuenta para acceder a nuestros servicios o inicia sesion si ya tienes una cuenta."
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #8244c4 0%, #649cfd 100%);
+      }
+      .login-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh;
+      }
+      .login-section h1 {
+        color: #fff;
+        margin-bottom: 24px;
+        font-size: 2em;
+        letter-spacing: 1px;
+      }
+      .login-form {
+        background: #fff;
+        padding: 32px 28px;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(100, 156, 253, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        min-width: 320px;
+        max-width: 90vw;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-group label {
+        font-weight: 500;
+        color: #8244c4;
+        margin-bottom: 2px;
+      }
+      .form-group input {
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: border 0.2s;
+      }
+      .form-group input:focus {
+        border-color: #649cfd;
+        outline: none;
+      }
+      .login-form button[type="submit"] {
+        background: linear-gradient(90deg, #8244c4 0%, #649cfd 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 0;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 10px;
+      }
+      .login-form button[type="submit"]:hover {
+        background: linear-gradient(90deg, #7225c3 0%, #2976fb 100%);
+      }
+      .login-form a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #8244c4;
+        text-decoration: none;
+        font-weight: 500;
+        border-radius: 6px;
+        padding: 8px 0;
+        transition: background 0.3s, color 0.3s;
+      }
+      .login-form a:hover {
+        color: #fff;
+        background: linear-gradient(90deg, #8244c4 0%, #649cfd 100%);
+        text-decoration: none;
+      }
+      @media (max-width: 500px) {
+        .login-form {
+          min-width: unset;
+          padding: 18px 8px;
+        }
+        .login-section h1 {
+          font-size: 1.3em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="headerDiv">
+        <a href="../index.html">
+          <img
+            src="../src/Logo.webp"
+            alt="Logo De CodeCraft"
+            width="50px"
+            hight="50px"
+          />
+        </a>
+        <input type="checkbox" id="Menu" style="display: none" />
+        <label class="iconMenu" for="Menu"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 6l16 0" />
+            <path d="M4 12l16 0" />
+            <path d="M4 18l16 0" />
+          </svg>
+        </label>
+        <nav class="navbar">
+          <ul>
+            <a href="../index.html">Inicio</a>
+            <a href="./planes.php">Planes y precios</a>
+            <a href="./contactanos.html">Contactanos</a>
+            <a href="./QuienesSomos.html">Quienes somos</a>
+            <a href="./Trabaja.html">Trabaja con nosotros</a>
+            <a href="./login.html">Iniciar sesión</a>
+            <a href="#" id="logoutLink" style="display: none">Cerrar sesión</a>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="login-section">
+        <h1>Iniciar Sesion o Registrarse</h1>
+        <form action="../db/login.php" method="post" class="login-form">
+          <div class="form-group">
+            <label for="nombreUsuario">Nombre de Usuario</label>
+            <input
+              type="text"
+              id="nombreUsuario"
+              name="nombreUsuario"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="contrasena">Contraseña</label>
+            <input
+              type="contrasena"
+              id="contrasena"
+              name="contrasena"
+              required
+            />
+          </div>
+          <button type="submit">Iniciar Sesion</button>
+          <a href="./registro.html">Registrarse</a>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>Hecho por <span>VahosDev</span></p>
+      <p>Proyecto Ficticio De La Universidad</p>
+    </footer>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        // Busca el enlace de iniciar sesión por su href
+        const loginLink = document.querySelector('a[href="./login.html"]');
+        if (localStorage.getItem("logueado") === "1" && loginLink) {
+          loginLink.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

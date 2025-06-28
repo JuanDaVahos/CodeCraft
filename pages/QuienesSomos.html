@@ -6,6 +6,11 @@
     <title>Quienes Somos || CodeCraft</title>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="icon" href="../src/VahosDev.webp" />
+    <script src="../js/index.js" defer></script>
+    <meta
+      name="description"
+      content="Quienes Somos || CodeCraft - Conoce más sobre nuestra empresa, nuestra misión y visión, y el equipo detrás de CodeCraft."
+    />
     <style>
       section {
         width: 80%;
@@ -58,6 +63,8 @@
             <a href="./contactanos.html">Contactanos</a>
             <a href="./QuienesSomos.html">Quienes somos</a>
             <a href="./Trabaja.html">Trabaja con nosotros</a>
+            <a href="./login.html">Iniciar sesión</a>
+            <a href="#" id="logoutLink" style="display: none">Cerrar sesión</a>
           </ul>
         </nav>
       </div>
@@ -87,5 +94,14 @@
       <p>Hecho por <span>VahosDev</span></p>
       <p>Proyecto Ficticio De La Universidad</p>
     </footer>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        // Busca el enlace de iniciar sesión por su href
+        const loginLink = document.querySelector('a[href="./login.html"]');
+        if (localStorage.getItem("logueado") === "1" && loginLink) {
+          loginLink.style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>

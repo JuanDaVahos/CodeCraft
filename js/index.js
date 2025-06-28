@@ -43,37 +43,22 @@ labelMenu.addEventListener("click", () => {
   }
 });
 
-function setupPlanDialogs() {
-  const template = document.getElementById("planDialogTemplate");
-  const planButtons = document.querySelectorAll(".openModal");
+window.addEventListener("DOMContentLoaded", () => {
+  const loginLink = document.querySelector('a[href="./pages/login.html"]');
+  const logoutLink = document.getElementById("logoutLink");
+  if (localStorage.getItem("logueado") === "1") {
+    if (loginLink) loginLink.style.display = "none";
+    if (logoutLink) logoutLink.style.display = "inline-block";
+  } else {
+    if (logoutLink) logoutLink.style.display = "none";
+  }
 
-  planButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const article = btn.closest(".plan");
-      const planName = article.querySelector("h3").textContent;
-      const planPrice = btn.textContent;
-      const description = article.querySelectorAll("p")[0].textContent;
-
-      const clone = template.content.cloneNode(true);
-      const dialog = clone.querySelector("dialog");
-
-      // Usa querySelector con clase para los campos ocultos
-      dialog.querySelector(".inputPlan").value = planName;
-      dialog.querySelector(".inputPrecio").value = planPrice;
-
-      dialog.querySelector(".dialogPlanTitle").textContent = planName;
-      dialog.querySelector(".dialogPlanPrice").textContent = planPrice;
-      dialog.querySelector(".dialogPlanDescription").textContent = description;
-
-      dialog.addEventListener("close", () => {
-        dialog.remove();
-        document.body.style.overflow = "";
-      });
-
-      document.body.appendChild(dialog);
-      dialog.showModal();
+  if (logoutLink) {
+    logoutLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.removeItem("logueado");
+      location.reload();
+      alert("Has cerrado sesión correctamente.");
     });
-  });
-}
-
-setupPlanDialogs();
+  }
+});

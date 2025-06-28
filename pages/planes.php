@@ -57,10 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <nav class="navbar">
         <ul>
           <a href="../index.html">Inicio</a>
-          <a href="./planes.html">Planes y precios</a>
+          <a href="./planes.php">Planes y precios</a>
           <a href="./contactanos.html">Contactanos</a>
           <a href="./QuienesSomos.html">Quienes somos</a>
           <a href="./Trabaja.html">Trabaja con nosotros</a>
+          <a href="./login.html">Iniciar sesión</a>
+          <a href="#" id="logoutLink" style="display:none;">Cerrar sesión</a>
         </ul>
       </nav>
     </div>
@@ -189,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
     <template id="planDialogTemplate">
       <dialog class="planDialog" closedby="any">
-        <form method="post" action="../db/contrato.php" id="contratoForm">
+        <form method="post" action="planes.php" id="contratoForm">
           <h2>Contratar <span class="dialogPlanTitle"></span></h2>
           <input type="hidden" name="plan" class="inputPlan" />
           <input type="hidden" name="precio" class="inputPrecio" />
@@ -202,9 +204,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               Simular compra
             </button>
           </div>
-          <button type="button" class="dialogCancel" onclick="this.closest('dialog').close()">
-            Cancelar
-          </button>
+          <form method="dialog">
+            <button>
+              Cancelar
+            </button>
+          </form>
           <p class="dialogNote">
             <strong>Nota:</strong> Este es un proyecto universitario. No se
             realizará ninguna contratación real.
@@ -232,7 +236,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           const clone = template.content.cloneNode(true);
           const dialog = clone.querySelector("dialog");
 
-          // Asigna los valores a los campos ocultos usando clases
           dialog.querySelector(".inputPlan").value = planName;
           dialog.querySelector(".inputPrecio").value = planPrice;
 
@@ -242,7 +245,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           dialog.addEventListener("close", () => {
             dialog.remove();
-            document.body.style.overflow = "";
           });
 
           document.body.appendChild(dialog);
@@ -250,7 +252,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         });
       });
     }
+
     setupPlanDialogs();
+
+    window.addEventListener("DOMContentLoaded", () => {
+      // Busca el enlace de iniciar sesión por su href
+      const loginLink = document.querySelector(
+        'a[href="./login.html"]'
+      );
+      if (localStorage.getItem("logueado") === "1" && loginLink) {
+        loginLink.style.display = "none";
+      }
+    });
   </script>
 </body>
 
