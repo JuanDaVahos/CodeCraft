@@ -15,11 +15,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($row = mysqli_fetch_assoc($result)) {
     $_SESSION['usuario'] = $row['nombreUsuario'];
-    echo "<script>
-      localStorage.setItem('logueado', '1');
-      window.location.href='../index.html';
-      alert('¡Inicio de sesion exitoso!');
-    </script>";
+    $_SESSION['rol'] = $row['rolUsuario'];
+    if ($row['rolUsuario'] === 'admin') {
+      echo "<script>
+          localStorage.setItem('logueado', '1');
+          window.location.href='../pages/admin/admin.php';
+        </script>";
+    } else {
+      echo "<script>
+          localStorage.setItem('logueado', '1');
+          window.location.href='../index.html';
+        </script>";
+    }
   } else {
     echo "<script>alert('Usuario o contraseña incorrectos');window.location.href='../pages/login.html';</script>";
   }

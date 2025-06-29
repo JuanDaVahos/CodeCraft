@@ -1,0 +1,65 @@
+body {
+  background: #f5f6fa;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(100, 156, 253, 0.1);
+  padding: 36px 28px 28px 28px;
+  text-align: center;
+}
+
+.admin-container h1 {
+  color: #8244c4;
+  margin-bottom: 24px;
+}
+
+.admin-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.admin-btns a {
+  background: linear-gradient(90deg, #8244c4 0%, #649cfd 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 0;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(100, 156, 253, 0.08);
+  display: block;
+}
+
+.admin-btns a:hover {
+  background: linear-gradient(90deg, #7225c3 0%, #2976fb 100%);
+  box-shadow: 0 4px 16px rgba(100, 156, 253, 0.15);
+}
+
+#logoutLink {
+  display: block;
+  margin-top: 18px;
+  color: #8244c4;
+  background: none;
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+#logoutLink:hover {
+  color: #2976fb;
+  background: none;
+  text-decoration: underline;
+}
